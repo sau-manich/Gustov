@@ -344,7 +344,7 @@
                                         <br><br> Charke<small>De acuerdi con la cantidad se multiplicara por el precio del plato.</small>
                                     </h2>
                                 </div>
-                                <form action="../../../Controlador/ventaControlador.php?opc=guardar" method="post">
+                                <form action="#">
                                     <div class="card__body">
                                         <div class="input-group">
                                             <div class="form-group">
@@ -354,75 +354,25 @@
                                                     <i class="form-group__bar"></i>
                                                 </div>
                                             </div>
-                                            <span class="input-group-addon"><button type="submit" id="boton" class="btn btn-success btn--icon" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
+                                            <span class="input-group-addon"><button id="enter" class="btn btn-success btn--icon addBtn" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
                                             <div class="form-group">
-                                                <input type="number" name="cantidad" class="form-control text-center" placeholder="Cantidad">
+                                                <input type="number" name="cantidad" class="form-control text-center" placeholder="Cantidad" id="toDoInput">
                                                 <i class="form-group__bar"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                            <div class="card widget-analytic">
-                                <div class="card__header">
-                                    <h2 align="center">
-                                        <lord-icon
-                                            src="https://cdn.lordicon.com//itmmouju.json"
-                                            colors="primary:#e4e4e4,secondary:#86c716"
-                                            style="width:150px;height:150px;">
-                                        </lord-icon>
-                                        <br><br> Charke<small>De acuerdi con la cantidad se multiplicara por el precio del plato.</small>
-                                    </h2>
-                                </div>
-                                <form action="../../../Controlador/ventaControlador.php?opc=guardar" method="post">
-                                    <div class="card__body">
-                                        <div class="input-group">
-                                            <div class="form-group">
-                                                <span class="input-group-addon"></span>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control text-center" placeholder="Bs.- 30.00" disabled>
-                                                    <i class="form-group__bar"></i>
-                                                </div>
-                                            </div>
-                                            <span class="input-group-addon"><button type="submit" id="boton" class="btn btn-success btn--icon" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
-                                            <div class="form-group">
-                                                <input type="number" name="cantidad" class="form-control text-center" placeholder="Cantidad">
-                                                <i class="form-group__bar"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="container">
+                                
+                                <!-- <div class="output">
+                                    <p id="test1">Tasks:</p>
+                                    <ul id="myList">
+                                    </ul>
+                                </div> -->
+                                
                             </div>
-                            <div class="card widget-analytic">
-                                <div class="card__header">
-                                    <h2 align="center">
-                                        <lord-icon
-                                            src="https://cdn.lordicon.com//itmmouju.json"
-                                            colors="primary:#e4e4e4,secondary:#86c716"
-                                            style="width:150px;height:150px;">
-                                        </lord-icon>
-                                        <br><br> Charke<small>De acuerdo con la cantidad se multiplicara por el precio del plato.</small>
-                                    </h2>
-                                </div>
-                                <form action="../../../Controlador/ventaControlador.php?opc=guardar" method="post">
-                                    <div class="card__body">
-                                        <div class="input-group">
-                                            <div class="form-group">
-                                                <span class="input-group-addon"></span>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control text-center" placeholder="Bs.- 30.00" disabled>
-                                                    <i class="form-group__bar"></i>
-                                                </div>
-                                            </div>
-                                            <span class="input-group-addon"><button type="submit" id="boton" class="btn btn-success btn--icon" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
-                                            <div class="form-group">
-                                                <input type="number" name="cantidad" class="form-control text-center" placeholder="Cantidad">
-                                                <i class="form-group__bar"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+
                         </div>
                     </div>
 
@@ -441,7 +391,7 @@
                                 <a href="#" class="list-group-item media">
                                     <div class="pull-left">
                                         <lord-icon
-                                            src="https://cdn.lordicon.com//tvyxmjyo.json"
+                                            src="https://cdn.lordicon.com//tsvyxmjyo.json"
                                             trigger="loop"
                                             colors="primary:#e4e4e4,secondary:#86c716"
                                             style="width:50px;height:50px;">
@@ -449,15 +399,17 @@
                                     </div>
 
                                     <div class="media-body">
+                                    <p id="test1"></p>
                                         <div class="col-sm-9">
-                                            <div class="list-group__heading">Picante de pollo</div>
-                                            <small class="list-group__text">3</small>
+                                            <div class="list-group__heading"><ul id="myList">
+                                            </ul></div>
+                                            <!-- <small class="list-group__text">3</small> -->
                                         </div>
-                                        <div class="col-sm-3">
+                                        <!-- <div class="col-sm-3">
                                             <p align="center">
                                                 <button type="submit" class="btn btn-warning btn--icon"><i class="zmdi zmdi-close"></i></button>        
                                             </p>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </a>
                             </div>
@@ -549,7 +501,68 @@
             <!-- calendario -->
             <script src="../../assets/js/calendario.js"></script>
 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+            <script>
+                $('#toDoInput').keypress(function (e) {
+                    var key = e.which;
+                    if(key == 13)  // the enter key code
+                    {
+                        event.preventDefault(); //prevent page refresh
+                        $('.addBtn').click();  
+                    }
+                    });  
+
+                    //ADD function
+                    $(".addBtn").on('click', addFn);
+
+                    function addFn() {
+                        var text = $('#toDoInput').val();
+                        //Check if empty
+                        if(!text){
+                            alert('textbox cant be empty');
+                            return;
+                        }
+                        //add elements to ul
+                    $("#myList").append('<li><p>' + text + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
+                        //set input back to blank
+                        $("#toDoInput").val('');
+                    }
+
+                    //DELETE function
+                    $(document).on("click", ".delete", function(){
+                        $(this).parentsUntil("ul").remove();
+                    });
+
+
+                    //EDIT function
+                    $(document).on("click", ".edit", function(){
+                        //task text
+                        var text = $(this).closest("li").find("p");
+                        text.prop("contenteditable", true).focus();
+                        
+                        $(text).keypress(function (e) {
+                            var key = e.which;
+                            if(key == 13)  // the enter key code
+                        {
+                                //on Enter leave item and set to new edit
+                                this.blur();
+                                this.prop("contenteditable",false);
+                                return false;
+                        }
+                        });  
+                    });
+
+
+                    //CHECK-OFF function
+                    $(document).on("change", ".checkbox", function(){
+                        if (this.checked) {
+                                $(this).closest("li").css("text-decoration","line-through");
+                        }else {
+                                $(this).closest("li").css("text-decoration", "none");
+                        }
+                    });
+            </script>
     </body>
 </html>
 <?php
