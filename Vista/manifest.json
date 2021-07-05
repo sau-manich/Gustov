@@ -1,0 +1,19 @@
+{
+    "name": "Gustov",
+    "short_name": "Gustov",
+    "description": "Bienvenido a Gustov, barriga llena, corazon contento",
+    "background_color": "#1E2A31",
+    "theme_color": "#22313A",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": "./?utm_source=web_app_manifest",
+    "scope": "./",
+    "lang": "es-MX",
+    "icons": [
+      {
+        "src": "assets/img/icons/favicon/ico.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
