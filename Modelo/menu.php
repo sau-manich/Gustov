@@ -44,23 +44,23 @@ require_once "conexion.php";
 
 
 
-    // public function getMenu()
-    // {
-    //   try
-    //   {
-    //     $conexion = new Conexion();
-    //     $conexion = $conexion->conectar();
-    //     $query = 'SELECT * FROM menu';
-    //     $preparar = $conexion->prepare($query);
-    //     $preparar->execute();
-    //     $registro = $preparar->fetchAll();
-    //     return ($registro) ? $registro : null;
-    //   }
-    //   catch (PDOException $e)
-    //   {
-    //     return 'Error';
-    //   }
-    // }
+    public function getMenu()
+    {
+      try
+      {
+        $conexion = new Conexion();
+        $conexion = $conexion->conectar();
+        $query = 'SELECT * FROM menu';
+        $preparar = $conexion->prepare($query);
+        $preparar->execute();
+        $registro = $preparar->fetchAll();
+        return ($registro) ? $registro : null;
+      }
+      catch (PDOException $e)
+      {
+        return 'Error';
+      }
+    }
 
 
 // ============================= Metodos Listar =============================

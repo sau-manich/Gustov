@@ -558,14 +558,14 @@ if ($_SESSION["usuario"]!=null) {
               url:'../../../Controlador/menuControlador.php?opc=listar',
               data: ''
             }).done(function(info){
+            //   console.log(info);
               var data = JSON.parse(info);
-              console.log(data);
               for (var i = 0; i < data.length; i++)
               {
                 $('#menuTabla').append('<tr>');
                 $('#menuTabla').append('<td> '+data[i]['nombre']+'</td>');
                 $('#menuTabla').append('<td> '+data[i]['precio']+'</td>');
-                $('#menuTabla').append('<td> '+data[i]['ci']+'</td>');
+                $('#menuTabla').append('<td> '+data[i]['estado']+'</td>');
                 $('#menuTabla').append('<td><button class="btn btn-success btn--icon"><i class="zmdi zmdi-edit" style="color:white;"></i></button> <button class="btn btn--light btn--icon"><a href="../../../Controlador/menuControlador.php?opc=eliminarMenu&key='+data[i]['id_menu']+'"><i class="zmdi zmdi-close" style="color:white;"></i></button></td>');
                 $('#menuTabla').append('</tr><br><hr>');
               }

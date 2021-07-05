@@ -1,4 +1,9 @@
 <?php
+
+include '../../../Controlador/menuControlador.php';
+$datosMenu = listaMenu();
+// var_dump($datosMenu);
+
   session_start();
   if ($_SESSION["usuario"]!=null) {
 ?>
@@ -333,46 +338,47 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div id="content__grid" data-columns>
+                            <?php
+                            foreach ($datosMenu as $value)
+                            {
+                            $ruta = explode("/Vista/", $value->nombre);
+                            // var_dump($ruta);
+                            ?>
                             <div class="card widget-analytic">
-                                <div class="card__header">
+                                <div class="card__header" id="<?php echo "key".$value->id_menu; ?>">
                                     <h2 align="center">
                                         <lord-icon
                                             src="https://cdn.lordicon.com//itmmouju.json"
                                             colors="primary:#e4e4e4,secondary:#86c716"
                                             style="width:150px;height:150px;">
                                         </lord-icon>
-                                        <br><br> Charke<small>De acuerdi con la cantidad se multiplicara por el precio del plato.</small>
+                                        <br><br> <?php echo $value->nombre ?><small><?php echo $value->ingredientePrincipal ?> - <?php echo $value->ingredienteSecundario ?> - <?php echo $value->ingredienteComplemento ?></small>
                                     </h2>
                                 </div>
-                                <form action="#">
+                                <form class="carrito">
+                                    <input type="hidden" name="nombre" value="<?php echo $value->nombre ?>">
+                                    <input type="hidden" name="precio" value="<?php echo $value->precio ?>">
                                     <div class="card__body">
                                         <div class="input-group">
                                             <div class="form-group">
                                                 <span class="input-group-addon"></span>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control text-center" placeholder="Bs.- 30.00" disabled>
+                                                    <input type="text" class="form-control text-center" value="<?php echo $value->precio ?>" placeholder="<?php echo $value->precio ?>" disabled>
                                                     <i class="form-group__bar"></i>
                                                 </div>
                                             </div>
-                                            <span class="input-group-addon"><button id="enter" class="btn btn-success btn--icon addBtn" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
+                                            <span class="input-group-addon"><button type="submit" class="btn btn-success btn--icon addBtn" data-trigger="hover" data-toggle="popover" data-placement="top" data-original-title="Añadir"><i class="zmdi zmdi-shopping-cart"></i></button></span>
                                             <div class="form-group">
-                                                <input type="number" name="cantidad" class="form-control text-center" placeholder="Cantidad" id="toDoInput">
+                                                <input type="number" name="cantidad" class="form-control text-center toDoInput" placeholder="Cantidad">
                                                 <i class="form-group__bar"></i>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                            <div class="container">
-                                
-                                <!-- <div class="output">
-                                    <p id="test1">Tasks:</p>
-                                    <ul id="myList">
-                                    </ul>
-                                </div> -->
-                                
-                            </div>
-
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
 
@@ -400,7 +406,7 @@
 
                                     <div class="media-body">
                                     <p id="test1"></p>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-12">
                                             <div class="list-group__heading"><ul id="myList">
                                             </ul></div>
                                             <!-- <small class="list-group__text">3</small> -->
@@ -503,31 +509,41 @@
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+            <script src="../../src/venta.js"></script>
+
             <script>
-                $('#toDoInput').keypress(function (e) {
-                    var key = e.which;
-                    if(key == 13)  // the enter key code
-                    {
-                        event.preventDefault(); //prevent page refresh
-                        $('.addBtn').click();  
-                    }
-                    });  
-
-                    //ADD function
-                    $(".addBtn").on('click', addFn);
-
-                    function addFn() {
-                        var text = $('#toDoInput').val();
-                        //Check if empty
-                        if(!text){
-                            alert('textbox cant be empty');
-                            return;
+                let carrito = [];
+                function castingObjetToCart(objeto){
+                    return objeto.reduce(function (objetito, carrito){
+                        return {
+                            ...objetito,
+                            [carrito.name]:carrito.value
                         }
-                        //add elements to ul
-                    $("#myList").append('<li><p>' + text + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
-                        //set input back to blank
-                        $("#toDoInput").val('');
-                    }
+                    }, {}) 
+                }
+                $('.carrito').submit(function (e) {
+                    e.preventDefault();
+                    var item = castingObjetToCart($(this).serializeArray());
+                    carrito.push(item);
+                    // console.log($(this).serializeArray());
+                    // console.log(castingObjetToCart($(this).serializeArray()));
+                    // console.log(carrito);
+                    $("#myList").append('<li><p>' + item.cantidad + ' - ' + item.nombre + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
+                });
+
+
+                    // function addFn() {
+                    //     var text = $('.toDoInput').val();
+                    //     //Check if empty
+                    //     if(!text){
+                    //         alert('textbox cant be empty');
+                    //         return;
+                    //     }
+                    //     //add elements to ul
+                    // $("#myList").append('<li><p>' + text + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
+                    //     //set input back to blank
+                    //     $(".toDoInput").val('');
+                    // }
 
                     //DELETE function
                     $(document).on("click", ".delete", function(){

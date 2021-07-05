@@ -1,22 +1,32 @@
 <?php
-require_once ('../Modelo/menu.php');
+$path = getcwd();
+// echo "La ruta absoluta es: ";
+// echo $path;
+if (strpos($path,'\layouts\administrador')) {
+  include ('../../../Modelo/menu.php');
+}else{
+include ('../Modelo/menu.php');
+}
+// include ('../Modelo/menu.php');
 
-  if (isset($_POST) && isset($_GET))
+  if (isset($_POST) && isset($_GET) && isset($_GET['opc']))
   {
     switch ($_GET['opc'])
     {
       case 'guardar':
         registrar($_POST);
-        break;
-      case 'listar':
+      break;
+        case 'listar':
           echo json_encode(listar());
         break;
-        case 'eliminarMenu':
-          eliminarMenu($_GET);
+          // echo json_encode(listar());
+          case 'eliminarMenu':
+            eliminarMenu($_GET);
           break;
     }
   }
 
+  // var_dump($_POST,$_GET);
 
   
 // ============================= Funcion para Eliminar =============================
@@ -55,35 +65,35 @@ require_once ('../Modelo/menu.php');
     return $registros;
   }
 
-  // function listaMenu()
-  // {
-  //   $menu = new Menu();
-  //   $menu = $menu->getMenu();
-  //   $listaMenu = array();
-  //   $i = 0;
-  //   if ($menu!=null)
-  //   {
-  //     foreach ($menu as $value)
-  //     {
-  //       $menu = new Menu();
-  //       $menu->id_menu = $value['id_menu'];
-  //       $menu->nombre = $value['nombre'];
-  //       $menu->precio = $value['precio'];
-  //       $menu->estado = ($value['estado']==1) ? 'Activo' : 'Inactivo';
-  //       $menu->ingredientePrincipal = $value['ingredientePrincipal'];
-  //       $menu->ingredienteSecundario = $value['ingredienteSecundario'];
-  //       $menu->ingredienteComplemento = $value['ingredienteComplemento'];
-  //       $listaMenu[$i] = $menu;
-  //       $i++;
-  //     }
-  //     return $listaMenu;
-  //   }
-  //   else
-  //   {
-  //     return null;
-  //   }
+  function listaMenu()
+  {
+    $menu = new Menu();
+    $menu = $menu->getMenu();
+    $listaMenu = array();
+    $i = 0;
+    if ($menu!=null)
+    {
+      foreach ($menu as $value)
+      {
+        $menu = new Menu();
+        $menu->id_menu = $value['id_menu'];
+        $menu->nombre = $value['nombre'];
+        $menu->precio = $value['precio'];
+        $menu->estado = ($value['estado']==1) ? 'Activo' : 'Inactivo';
+        $menu->ingredientePrincipal = $value['ingredientePrincipal'];
+        $menu->ingredienteSecundario = $value['ingredienteSecundario'];
+        $menu->ingredienteComplemento = $value['ingredienteComplemento'];
+        $listaMenu[$i] = $menu;
+        $i++;
+      }
+      return $listaMenu;
+    }
+    else
+    {
+      return null;
+    }
 
-  // }
+  }
 
 // ============================= Funcion para registrar =============================
 
@@ -101,4 +111,5 @@ require_once ('../Modelo/menu.php');
     $menu->guardar();
     header('location: ../Vista/layouts/administrador/menu.php');
   }
+
 ?>
