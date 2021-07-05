@@ -1,7 +1,7 @@
 <?php
-session_start();
-if ($_SESSION["usuario"]!=null) {
-  ?>
+  session_start();
+  if ($_SESSION["usuario"]!=null) {
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -550,31 +550,6 @@ if ($_SESSION["usuario"]!=null) {
             <script src="../../assets/js/calendario.js"></script>
 
 
-
-        <!-- ============================= Listamos en la tabla ID="menuComobox" ============================= -->
-
-        <script type="text/javascript">
-        $(document).ready(function(){
-          listarMenu();
-        });
-
-        function listarMenu()
-        {
-          $.ajax({
-            method:'POST',
-            url:'../../../Controlador/menuControlador.php?opc=listar',
-            data: ''
-          }).done(function(info){
-            var data = eval(info);
-            console.log(data);
-            for (var i = 0; i < data.length; i++) {
-              $('#menuComobox').append('<option value="'+data[i][0]+'">'+data[i][1]+'</option>');
-            //   console.log(data[i][1]+"-----------------------");
-            }
-
-          });
-          }
-          </script>
     </body>
 </html>
 <?php

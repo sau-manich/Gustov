@@ -55,6 +55,35 @@ require_once ('../Modelo/menu.php');
     return $registros;
   }
 
+  // function listaMenu()
+  // {
+  //   $menu = new Menu();
+  //   $menu = $menu->getMenu();
+  //   $listaMenu = array();
+  //   $i = 0;
+  //   if ($menu!=null)
+  //   {
+  //     foreach ($menu as $value)
+  //     {
+  //       $menu = new Menu();
+  //       $menu->id_menu = $value['id_menu'];
+  //       $menu->nombre = $value['nombre'];
+  //       $menu->precio = $value['precio'];
+  //       $menu->estado = ($value['estado']==1) ? 'Activo' : 'Inactivo';
+  //       $menu->ingredientePrincipal = $value['ingredientePrincipal'];
+  //       $menu->ingredienteSecundario = $value['ingredienteSecundario'];
+  //       $menu->ingredienteComplemento = $value['ingredienteComplemento'];
+  //       $listaMenu[$i] = $menu;
+  //       $i++;
+  //     }
+  //     return $listaMenu;
+  //   }
+  //   else
+  //   {
+  //     return null;
+  //   }
+
+  // }
 
 // ============================= Funcion para registrar =============================
 

@@ -523,7 +523,7 @@ if ($_SESSION["usuario"]!=null) {
             <script src="script.js"></script>
 
 
-<!-- ============================= Listamos en la tabla los medidores ID="usuarioTabla" ============================= -->
+<!-- ============================= Listamos en la tabla ID="usuarioTabla" ============================= -->
 
         <script type="text/javascript">
         $(document).ready(function(){
