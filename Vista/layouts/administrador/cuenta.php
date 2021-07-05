@@ -10,14 +10,31 @@ if ($_SESSION["usuario"]!=null) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- PWA desde aqui segun el video-->
+        <!-- Para pintar de color la barra de navegador de un navegador-->
+        <meta name="theme-color" content="#222">
+        <!-- Para decirle a los navegadores que tu sitio esta optimizado para moviles y que el sitio es amigable -->
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <!-- PWA para apple-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <!-- icono-->
         <link rel="shortcut icon" type="image/png" href="../../assets/img/icons/favicon/ico.png">
-        <title>Gustov</title>
+        <!-- Pantalla de inicio-->
+        <link rel="apple-touch-icon" href="../../assets/img/icons/favicon/ico.png">
+        <link rel="apple-touch-startup-image" href="../../assets/img/icons/favicon/ico.png">
+        <!-- importante -->
+        <!-- <link rel="manifest" href="manifest.json"> -->
+            
+        <!-- Notificaciones push script -->
+        <script src="../../assets/js/push.min.js"></script>
+
+
+
+        <title>CAP-21 PWA</title>
 
         <!-- Vendors -->
-
-        <!-- calendario CSS -->
-        <link href="../../assets/css/calendario.css" rel="stylesheet">
 
         <!-- Animate CSS -->
         <link href="../../vendors/animate.css/animate.min.css" rel="stylesheet">
@@ -43,7 +60,9 @@ if ($_SESSION["usuario"]!=null) {
         <!-- Page loader -->
         <script src="../../assets/js/page-loader.min.js"></script>
 
+        
         <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
     </head>
     
     <body>
@@ -96,7 +115,6 @@ if ($_SESSION["usuario"]!=null) {
                 <i class="zmdi zmdi-thumb-up top-search__reset"></i>
             </form>
         </header>
-
         <section id="main">
             <aside id="notifications">
                 <ul class="tab-nav tab-nav--justified tab-nav--icon">
@@ -378,12 +396,12 @@ if ($_SESSION["usuario"]!=null) {
                                         <div class="col-sm-8">
                                             <div class="input-centered">
                                                 <label class="radio-inline">
-                                                   <input type="radio" name="rol" value=true required>
+                                                   <input type="radio" name="rol" value="1" required>
                                                    <i class="input-helper"></i>
                                                    Administrador
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="rol" value=false required>
+                                                    <input type="radio" name="rol" value="2" required>
                                                    <i class="input-helper"></i>
                                                    Vendedor
                                                 </label>
@@ -459,49 +477,53 @@ if ($_SESSION["usuario"]!=null) {
         </section>
 
 
-        
-
-
        <!-- Javascript Libraries -->
     
-           <!-- jQuery -->
-           <script src="../../vendors/jquery/dist/jquery.min.js"></script>
+            <!-- jQuery -->
+            <script src="../../vendors/jquery/dist/jquery.min.js"></script>
     
-           <!-- Bootstrap -->
-           <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-   
-           <!-- Malihu ScrollBar -->
-           <script src="../../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-   
-           <!-- Bootstrap Notify -->
-           <script src="../../vendors/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
-   
-           <!-- Moment -->
-           <script src="../../vendors/moment/min/moment.min.js"></script>
-   
-           <!-- FullCalendar -->
-           <script src="../../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
-   
-           <!-- Salvattore -->
-           <script src="../../vendors/salvattore/dist/salvattore.min.js"></script>
-   
-           <!-- Bootstrap Date/Time Picker -->
-           <script src="../../vendors/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-           
-           <!-- Select 2 -->
-           <script src="../../vendors/select2/dist/js/select2.full.min.js"></script>
-          
-           <!-- Demo Only -->
-           <script src="../../assets/demo/js/calendar.js"></script>
+            <!-- Bootstrap -->
+            <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+            <!-- Malihu ScrollBar -->
+            <script src="../../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
+            <!-- Bootstrap Notify -->
+            <script src="../../vendors/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+    
+            <!-- Moment -->
+            <script src="../../vendors/moment/min/moment.min.js"></script>
+    
+            <!-- FullCalendar -->
+            <script src="../../vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    
+             <!-- Simple Weather -->
+             <script src="../../vendors/simpleWeather/jquery.simpleWeather.min.js"></script>
+    
+             <!-- Salvattore -->
+             <script src="../../vendors/salvattore/dist/salvattore.min.js"></script>
+    
+            <!-- Bootstrap Wizard -->
+            <script src="../../vendors/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    
+
+            <!-- Bootstrap Date/Time Picker -->
+            <script src="../../vendors/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+            <!-- Select 2 -->
+            <script src="../../vendors/select2/dist/js/select2.full.min.js"></script>
+
+            <!-- Simple File Input -->
+            <script src="../../vendors/fileinput/fileinput.min.js"></script>
+    
             <!-- Site Functions & Actions -->
             <script src="../../assets/js/app.min.js"></script>
 
-            <!-- calendario -->
-            <script src="../../assets/js/calendario.js"></script>
+            <!-- PWA script -->
+            <script src="script.js"></script>
 
 
-        <!-- ============================= Listamos en la tabla los usuarios ID="usuarioTabla" ============================= -->
+<!-- ============================= Listamos en la tabla los medidores ID="usuarioTabla" ============================= -->
 
         <script type="text/javascript">
         $(document).ready(function(){
@@ -529,6 +551,10 @@ if ($_SESSION["usuario"]!=null) {
             });
           }
           </script>
+
+
+
+
     </body>
 </html>
 <?php

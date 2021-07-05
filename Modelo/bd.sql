@@ -76,17 +76,18 @@ create table venta
 /*
 Insertamos datos a la tabla venta
 */
-insert into venta(id_venta,cantidad,descuento,id_menu,id_usuario,id_cliente) value (null,3,10,1,1,1);
+insert into venta(id_venta,descuento,id_menu,id_usuario,id_cliente) value (null,10,1,1,1);
 
 
 /* ============================== CREAMOS LA TABLA ventaMenu ======================================*/
 
-create table ventaMenu{
+create table ventaMenu
+(
 	id_ventaMenu int not null auto_increment primary key,
 	id_menu int,
 	id_venta int,
 	cantidad int,
   	foreign key (id_menu) references menu(id_menu),
   	foreign key (id_venta) references venta(id_venta)
-}
+);
 

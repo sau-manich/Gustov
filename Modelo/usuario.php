@@ -43,8 +43,6 @@ require_once "conexion.php";
       }
     }
 
-    
-// ============================= Para el login =============================
 
     public function getUsuario()
     {
@@ -70,31 +68,25 @@ require_once "conexion.php";
       }
     }
 
+  // Esta funcion sirbe para listar los usuarios en la tabla
+    public function listarUsuarios()
+    {
+      $almacenLista = '';
+      try
+      {
+        $conexion = new Conexion();
+        $conexion = $conexion->conectar();
+        $query = "SELECT * FROM usuario";
+        $preparar = $conexion->prepare($query);
+        $preparar->execute();
+        $almacenLista = $preparar->fetchAll();
+      }
+      catch (PDOException $e)
+      {
 
-// ============================= Metodos Listar =============================
-
-
-public function listarUsuarios()
-{
-  $almacenLista = '';
-  try
-  {
-    $conexion = new Conexion();
-    $conexion = $conexion->conectar();
-    $query = "SELECT * FROM usuario";
-    $preparar = $conexion->prepare($query);
-    $preparar->execute();
-    $almacenLista = $preparar->fetchAll();
-  }
-  catch (PDOException $e)
-  {
-
-  }
-  return $almacenLista;
-}
-
-
-// ============================= Metodos Guardar =============================
+      }
+      return $almacenLista;
+    }
 
 
     public function guardar()
@@ -125,9 +117,6 @@ public function listarUsuarios()
     }
 
 
-// ============================= Metodos Eliminar =============================
-
-
     public function eliminar()
     {
       try
@@ -149,6 +138,15 @@ public function listarUsuarios()
         return 'Error al eliminar';
       }
     }
+
+    
+
+    // $codigo = $_POST['codigo'];
+    // mysql_select_db($db,$coneccion) or die ('Error al conectar la base de datos');
+    //   $registros = mysql_query("SELECT * FROM usuario WHERE id_usuario = '$codigo'");
+    //   while ($registros = mysql_fetch_array($registros)){
+    //     echo $registro['id_usuario']." ".$registro['usuario'];
+    //   }
   }
 
 ?>
