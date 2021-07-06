@@ -461,6 +461,29 @@ if ($_SESSION["usuario"]!=null) {
                                         </tbody>
                                     </table>
                                 </div>
+                                <!-- Modal Large -->
+                                <div class="modal fade" id="modal--large" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title text-center">
+                                                <lord-icon
+                                                    src="https://cdn.lordicon.com//tdrtiskw.json"
+                                                    trigger="loop"
+                                                    colors="primary:#e4e4e4,secondary:#86c716"
+                                                    style="width:180px;height:180px;">
+                                                </lord-icon>
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                Lo sentimos, esta accion aun no esta disponible..
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -545,7 +568,7 @@ if ($_SESSION["usuario"]!=null) {
                 $('#usuarioTabla').append('<td> '+data[i]['usuario']+'</td>');
                 $('#usuarioTabla').append('<td> '+data[i]['email']+'</td>');
                 $('#usuarioTabla').append('<td> '+data[i]['rol']+'</td>');
-                $('#usuarioTabla').append('<td><button class="btn btn-success btn--icon"><i class="zmdi zmdi-edit" style="color:white;"></i></button> <button class="btn btn--light btn--icon"><a href="../../../Controlador/usuarioControlador.php?opc=eliminarUsuario&key='+data[i]['id_usuario']+'"><i class="zmdi zmdi-close" style="color:white;"></i></button></td>');
+                $('#usuarioTabla').append('<td><button data-toggle="modal" href="#modal--large" class="btn btn-success btn--icon"><i class="zmdi zmdi-edit" style="color:white;"></i></button> <button class="btn btn--light btn--icon"><a href="../../../Controlador/usuarioControlador.php?opc=eliminarUsuario&key='+data[i]['id_usuario']+'"><i class="zmdi zmdi-close" style="color:white;"></i></button></td>');
                 $('#usuarioTabla').append('</tr><br><hr>');
               }
             });

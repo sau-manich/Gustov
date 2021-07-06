@@ -453,6 +453,29 @@ if ($_SESSION["usuario"]!=null) {
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal Large -->
+                        <div class="modal fade" id="modal--large" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title text-center">
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com//tdrtiskw.json"
+                                            trigger="loop"
+                                            colors="primary:#e4e4e4,secondary:#86c716"
+                                            style="width:180px;height:180px;">
+                                        </lord-icon>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        Lo sentimos, esta accion aun no esta disponible..
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-link" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -466,50 +489,6 @@ if ($_SESSION["usuario"]!=null) {
                 </ul>
             </footer>
         </section>
-
-        <!-- Older IE Warning -->
-        <!--[if lt IE 9]>
-            <div class="ie-warning">
-                <h1>Warning!!</h1>
-                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-                <div class="ie-warning__container">
-                    <ul class="ie-warning__download">
-                        <li>
-                            <a href="http://www.google.com/chrome/">
-                                <img src="img/browsers/chrome.png" alt="">
-                                <div>Chrome</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.mozilla.org/en-US/firefox/new/">
-                                <img src="img/browsers/firefox.png" alt="">
-                                <div>Firefox</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.opera.com">
-                                <img src="img/browsers/opera.png" alt="">
-                                <div>Opera</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.apple.com/safari/">
-                                <img src="img/browsers/safari.png" alt="">
-                                <div>Safari</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                                <img src="img/browsers/ie.png" alt="">
-                                <div>IE (New)</div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <p>Sorry for the inconvenience!</p>
-            </div>
-        <![endif]-->
-
 
        <!-- Javascript Libraries -->
     
@@ -540,11 +519,6 @@ if ($_SESSION["usuario"]!=null) {
            <!-- Select 2 -->
            <script src="../../vendors/select2/dist/js/select2.full.min.js"></script>
    
-           <!-- Placeholder for IE9 -->
-           <!--[if IE 9 ]>
-               <script src="vendors/jquery-placeholder/jquery.placeholder.min.js"></script>
-           <![endif]-->
-   
           
            <!-- Demo Only -->
            <script src="../../assets/demo/js/calendar.js"></script>
@@ -554,6 +528,37 @@ if ($_SESSION["usuario"]!=null) {
 
             <!-- calendario -->
             <script src="../../assets/js/calendario.js"></script>
+
+
+            <!-- ============================= Listamos en la tabla ID="ventaTabla" ============================= -->
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            listarVenta();
+          });
+
+          function listarVenta()
+          {
+            $.ajax({
+              method:'POST',
+              url:'../../../Controlador/ventaControlador.php?opc=listar',
+              data: ''
+            }).done(function(info){
+            //   console.log(info);
+              var data = JSON.parse(info);
+              for (var i = 0; i < data.length; i++)
+              {
+                $('#ventaTabla').append('<tr>');
+                $('#ventaTabla').append('<td> 00000000'+data[i]['id_venta']+'</td>');
+                $('#ventaTabla').append('<td> '+data[i]['id_usuario']+'</td>');
+                $('#ventaTabla').append('<td> Bs.- '+data[i]['precioTotal']+'.00</td>');
+                $('#ventaTabla').append('<td><button data-toggle="modal" href="#modal--large" class="btn btn-success btn--icon"><i class="zmdi zmdi-eye" style="color:white;"></i></button> <button class="btn btn--light btn--icon"><a href="../../../Controlador/ventaControlador.php?opc=eliminarVenta&key='+data[i]['id_venta']+'"><i class="zmdi zmdi-close" style="color:white;"></i></button></td>');
+                $('#ventaTabla').append('</tr><br><hr>');
+              }
+            });
+          }
+          </script>
+
     </body>
 </html>
 <?php

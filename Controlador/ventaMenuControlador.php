@@ -20,7 +20,8 @@ include ('../Modelo/menu.php');
   {
       $ventaMenu;
       $venta = new Venta(); 
-      $venta->id_venta = rand(1,1000000); // Por fines practicos no se tomara la validacion del id_venta, pero deberia ser de crusial importancia controlar la no repeticion 
+      // $venta->id_venta = rand(1,1000000); // Por fines practicos no se tomara la validacion del id_venta, pero deberia ser de crusial importancia controlar la no repeticion
+      $venta->id_venta = $datos['id_venta']; 
       $venta->id_usuario = 1;
       $venta->id_cliente = 1;
       $venta->precioTotal = $datos['precio'];

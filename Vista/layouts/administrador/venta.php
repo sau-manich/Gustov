@@ -391,7 +391,7 @@ $datosMenu = listaMenu();
                                     colors="primary:#e4e4e4,secondary:#86c716"
                                     style="width:50px;height:50px;">
                                 </lord-icon>
-                            <h2>Lista de Venta <small id="resultado">0.00</small></h2>
+                            <h2>Lista de Venta <small id="resultado">Bs.- 0.00</small></h2>
                             </div>
                             <div class="list-group">
                                 <a href="#" class="list-group-item media">
@@ -419,10 +419,11 @@ $datosMenu = listaMenu();
                                     </div>
                                 </a>
                             </div>
-
-                            <a id="procesarVenta" class="view-more">
-                                <i class="zmdi zmdi-long-arrow-right"></i> Vender
-                            </a>
+                            <br>
+                            <p align="center">
+                            <button type="submit" class="btn btn--light btn--icon" id="procesarVenta" ><i class="zmdi zmdi-arrow-forward"></i></button>
+                                Vender
+                            </p><br>
                         </div>
 
                         <div class="card widget-contacts">

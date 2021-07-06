@@ -3,7 +3,6 @@ require_once "conexion.php";
   /**
    *
    */
-   // Dentro de la clase declaramos valores en private para no romprer la estructura de encapsulacion de POO
   class Usuario
   {
     private $id_usuario;
@@ -68,7 +67,10 @@ require_once "conexion.php";
       }
     }
 
-  // Esta funcion sirbe para listar los usuarios en la tabla
+
+// ============================= Metodos Listar =============================
+
+
     public function listarUsuarios()
     {
       $almacenLista = '';
@@ -87,6 +89,9 @@ require_once "conexion.php";
       }
       return $almacenLista;
     }
+
+
+// ============================= Metodos Guardar =============================
 
 
     public function guardar()
@@ -117,6 +122,10 @@ require_once "conexion.php";
     }
 
 
+
+// ============================= Metodos Eliminar =============================
+
+
     public function eliminar()
     {
       try
@@ -138,15 +147,6 @@ require_once "conexion.php";
         return 'Error al eliminar';
       }
     }
-
-    
-
-    // $codigo = $_POST['codigo'];
-    // mysql_select_db($db,$coneccion) or die ('Error al conectar la base de datos');
-    //   $registros = mysql_query("SELECT * FROM usuario WHERE id_usuario = '$codigo'");
-    //   while ($registros = mysql_fetch_array($registros)){
-    //     echo $registro['id_usuario']." ".$registro['usuario'];
-    //   }
   }
 
 ?>

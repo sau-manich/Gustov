@@ -43,24 +43,24 @@ require_once "conexion.php";
 // ============================= Metodos Listar =============================
 
 
-// public function listarCliente()
-// {
-//   $almacenLista = '';
-//   try
-//   {
-//     $conexion = new Conexion();
-//     $conexion = $conexion->conectar();
-//     $query = "SELECT * FROM cliente";
-//     $preparar = $conexion->prepare($query);
-//     $preparar->execute();
-//     $almacenLista = $preparar->fetchAll();
-//   }
-//   catch (PDOException $e)
-//   {
+public function listarVenta()
+{
+  $almacenLista = '';
+  try
+  {
+    $conexion = new Conexion();
+    $conexion = $conexion->conectar();
+    $query = "SELECT * FROM venta";
+    $preparar = $conexion->prepare($query);
+    $preparar->execute();
+    $almacenLista = $preparar->fetchAll();
+  }
+  catch (PDOException $e)
+  {
 
-//   }
-//   return $almacenLista;
-// }
+  }
+  return $almacenLista;
+}
 
 
 // ============================= Metodos Guardar =============================
@@ -94,27 +94,27 @@ require_once "conexion.php";
 // ============================= Metodos Eliminar =============================
 
 
-    // public function eliminar()
-    // {
-    //   try
-    //   {
-    //     $conexion = new Conexion();
+    public function eliminar()
+    {
+      try
+      {
+        $conexion = new Conexion();
 
-    //     $conexion = $conexion->conectar();
-    //     $query = 'DELETE FROM cliente WHERE id_cliente = :id_cliente';
-    //     $preparar = $conexion->prepare($query);
+        $conexion = $conexion->conectar();
+        $query = 'DELETE FROM venta WHERE id_venta = :id_venta';
+        $preparar = $conexion->prepare($query);
 
-    //     $preparar->bindValue(':id_cliente', $this->id_cliente);
+        $preparar->bindValue(':id_venta', $this->id_venta);
 
-    //     $preparar->execute();
+        $preparar->execute();
 
-    //     return null;
-    //   }
-    //   catch (PDOException $e)
-    //   {
-    //     return 'Error al eliminar';
-    //   }
-    // }
+        return null;
+      }
+      catch (PDOException $e)
+      {
+        return 'Error al eliminar';
+      }
+    }
   }
 
 ?>

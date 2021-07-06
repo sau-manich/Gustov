@@ -38,7 +38,9 @@ create table menu
 /*
 Insertamos datos a la tabla menu
 */
-insert into menu(id_menu,nombre,precio,ingredientePrincipal,ingredienteSecundario,ingredienteComplemento,estado) value (null,"Charke", 85, "Carne de llama", "Mote", "Quesillo",1);
+insert into menu(id_menu,nombre,precio,ingredientePrincipal,ingredienteSecundario,ingredienteComplemento,estado) value (null,"Charke", 110, "Carne de llama", "Mote", "Quesillo",1);
+insert into menu(id_menu,nombre,precio,ingredientePrincipal,ingredienteSecundario,ingredienteComplemento,estado) value (null,"Picante de pollo", 50, "Pollo criollo", "Jigote de verduras picante", "Tunta",1);
+insert into menu(id_menu,nombre,precio,ingredientePrincipal,ingredienteSecundario,ingredienteComplemento,estado) value (null,"Pique a lo macho", 60, "Salchica roja picante", "Carne de res", "Huevo y papa",1);
 
 
 
@@ -74,7 +76,7 @@ create table venta
 /*
 Insertamos datos a la tabla venta
 */
-insert into venta(id_venta,id_usuario,id_cliente,precioTotal) value (null,1,1,85);
+insert into venta(id_venta,id_usuario,id_cliente,precioTotal) value (null,1,1,110);
 
 
 /* ============================== CREAMOS LA TABLA ventaMenu ======================================*/
@@ -93,4 +95,4 @@ create table ventaMenu
 /*
 Insertamos datos a la tabla ventaMenu
 */
-insert into ventaMenu(id_ventaMenu,id_menu,id_venta,cantidad,subTotal) value (null,1,1,1,85);
+insert into ventaMenu(id_ventaMenu,id_menu,id_venta,cantidad,subTotal) value (null,1,1,1,110);
