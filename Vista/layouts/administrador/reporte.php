@@ -402,6 +402,58 @@ if ($_SESSION["usuario"]!=null) {
                         </div>
                     </div>
                     <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div  class="card__header card__header--highlight">
+                                <div class="card__header">
+                                    <h2 align="center">Lista de ventas <small>Lista de ventas generales.</small></h2>
+                                </div>
+
+                                <div class="card__body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Numero de venta</th>
+                                                <th>Usuario</th>
+                                                <th>Precio Total</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="ventaTabla">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div  class="card__header">
+                                <div class="card__header">
+                                    <h2 align="center">Reporte por consulta <small>Selecciona el tipo de reporte y el rango de fechas</small></h2>
+                                </div>
+
+                                <div class="card__body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Numero de venta</th>
+                                                <th>Usuario</th>
+                                                <th>Precio Total</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="#">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
             </section>

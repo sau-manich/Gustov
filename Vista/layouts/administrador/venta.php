@@ -443,10 +443,6 @@ $datosMenu = listaMenu();
                                     </li>
                                 </ul>
                             </div>
-
-                            <a class="widget-contacts__map" href="">
-                                <img src="demo/img/map.png" alt="">
-                            </a>
                         </div>
                     </div>
                 </div>
