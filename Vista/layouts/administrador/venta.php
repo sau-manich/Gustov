@@ -420,10 +420,12 @@ $datosMenu = listaMenu();
                                 </a>
                             </div>
                             <br>
+                            <form action="venta.php" method="post">
                             <p align="center">
                             <button type="submit" class="btn btn--light btn--icon" id="procesarVenta" ><i class="zmdi zmdi-arrow-forward"></i></button>
                                 Vender
                             </p><br>
+                            </form>
                         </div>
 
                         <div class="card widget-contacts">

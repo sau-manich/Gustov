@@ -36,6 +36,7 @@ include ('../Modelo/menu.php');
           $ventaMenu->subTotal = (float) $value['precio']*$value['cantidad'];
           $ventaMenu->guardar();
           // var_dump($ventaMenu);
+          header('location: ../Vista/layouts/administrador/venta.php');
       }
   }
 ?>
