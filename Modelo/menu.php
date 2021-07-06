@@ -42,6 +42,38 @@ require_once "conexion.php";
       }
     }
 
+    public static function obtenerMenu($nombre)
+    {
+      try
+      {
+        $conexion = new Conexion();
+        $conexion = $conexion->conectar();
+        $query = 'SELECT * FROM menu where nombre = :nombre';
+        $preparar = $conexion->prepare($query);
+        $preparar->bindValue(':nombre', $nombre);
+        $preparar->execute();
+        $registro = $preparar->fetch();
+        // return ($registro) ? $registro : null;
+        if ($registro)
+        {
+          $menuObtenido = new self;
+          $menuObtenido->id_menu = $registro['id_menu'];
+          $menuObtenido->nombre = $registro['nombre'];
+          $menuObtenido->precio = $registro['precio'];
+          $menuObtenido->ingredientePrincipal = $registro['ingredientePrincipal'];
+          $menuObtenido->ingredienteSecundario = $registro['ingredienteSecundario'];
+          $menuObtenido->ingredienteComplemento = $registro['ingredienteComplemento'];
+          $menuObtenido->estado = $registro['estado'];
+          return $menuObtenido;
+        }
+        return null;
+      }
+      catch (PDOException $e)
+      {
+        return 'Error';
+      }
+    }
+
 
 
     public function getMenu()

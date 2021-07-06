@@ -64,11 +64,9 @@ insert into cliente(id_cliente,nombreCompleto,telefono,descripcion,ci) value (nu
 create table venta
 (
 	id_venta int not null auto_increment primary key,
-	descuento int,
-	id_menu int null,
 	id_usuario int null,
 	id_cliente int null,
-  	foreign key (id_menu) references menu(id_menu),
+	precioTotal float,
   	foreign key (id_usuario) references usuario(id_usuario),
   	foreign key (id_cliente) references cliente(id_cliente)
 );
@@ -76,7 +74,7 @@ create table venta
 /*
 Insertamos datos a la tabla venta
 */
-insert into venta(id_venta,descuento,id_menu,id_usuario,id_cliente) value (null,10,1,1,1);
+insert into venta(id_venta,id_usuario,id_cliente,precioTotal) value (null,1,1,85);
 
 
 /* ============================== CREAMOS LA TABLA ventaMenu ======================================*/
@@ -87,7 +85,12 @@ create table ventaMenu
 	id_menu int,
 	id_venta int,
 	cantidad int,
+	subTotal float,
   	foreign key (id_menu) references menu(id_menu),
   	foreign key (id_venta) references venta(id_venta)
 );
 
+/*
+Insertamos datos a la tabla ventaMenu
+*/
+insert into ventaMenu(id_ventaMenu,id_menu,id_venta,cantidad,subTotal) value (null,1,1,1,85);

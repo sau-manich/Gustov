@@ -391,7 +391,7 @@ $datosMenu = listaMenu();
                                     colors="primary:#e4e4e4,secondary:#86c716"
                                     style="width:50px;height:50px;">
                                 </lord-icon>
-                            <h2>Lista de Venta <small>Tambien puedes ejecutar acciones de la lista</small></h2>
+                            <h2>Lista de Venta <small id="resultado">0.00</small></h2>
                             </div>
                             <div class="list-group">
                                 <a href="#" class="list-group-item media">
@@ -420,7 +420,7 @@ $datosMenu = listaMenu();
                                 </a>
                             </div>
 
-                            <a href="" class="view-more">
+                            <a id="procesarVenta" class="view-more">
                                 <i class="zmdi zmdi-long-arrow-right"></i> Vender
                             </a>
                         </div>
@@ -513,6 +513,8 @@ $datosMenu = listaMenu();
 
             <script>
                 let carrito = [];
+                var resultado = 0;
+                var mostrarResultado = 0;
                 function castingObjetToCart(objeto){
                     return objeto.reduce(function (objetito, carrito){
                         return {
@@ -524,26 +526,26 @@ $datosMenu = listaMenu();
                 $('.carrito').submit(function (e) {
                     e.preventDefault();
                     var item = castingObjetToCart($(this).serializeArray());
+                    resultado += parseFloat(item.cantidad) * parseFloat(item.precio);
+                    mostrarResultado = resultado;
+                    $('#resultado').html(mostrarResultado.toFixed(2));
                     carrito.push(item);
-                    // console.log($(this).serializeArray());
-                    // console.log(castingObjetToCart($(this).serializeArray()));
-                    // console.log(carrito);
                     $("#myList").append('<li><p>' + item.cantidad + ' - ' + item.nombre + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
                 });
 
+                $('#procesarVenta').click(function(e){
+                    e.preventDefault();
+                    console.log(carrito);
+                    $.ajax({
+                        method:'POST',
+                        url:'../../../Controlador/ventaMenuControlador.php?opc=guardar',
+                        data: {'carrito':carrito, 'precio':resultado}
+                    })
+                    .done(function(respuesta){
+                        console.log(respuesta);
+                    })
+                })
 
-                    // function addFn() {
-                    //     var text = $('.toDoInput').val();
-                    //     //Check if empty
-                    //     if(!text){
-                    //         alert('textbox cant be empty');
-                    //         return;
-                    //     }
-                    //     //add elements to ul
-                    // $("#myList").append('<li><p>' + text + '</p><button class="btn btn-success btn--icon edit" value="Edit"><i class="zmdi zmdi-edit"></i></button><button class="btn btn-warning btn--icon delete" value="Delete"><i class="zmdi zmdi-close"></i></button></li><br>');
-                    //     //set input back to blank
-                    //     $(".toDoInput").val('');
-                    // }
 
                     //DELETE function
                     $(document).on("click", ".delete", function(){
