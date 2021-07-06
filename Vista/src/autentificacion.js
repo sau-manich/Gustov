@@ -30,7 +30,7 @@ function autentificar()
       } else {
         $('#info').html('<div style="border: 2px solid green; border-radius:1rem; padding:1rem; background-color:#1E2A31;"><h5 style="color:white; text-align:center;">Datos Correctos</h5></div>');
       // esta dirección es desde el login hasta donde queramos llegar si son validos los datos
-      window.location.href = "layouts/socio/index.php";
+      window.location.href = "layouts/vendedor/index.php";
       }
       
     }
@@ -38,7 +38,7 @@ function autentificar()
     {
       error--;
       if(error==0){
-        window.location.href = "404.php";
+        window.location.href = "layouts/404.php";
       }
       else {
         // console.log(error);

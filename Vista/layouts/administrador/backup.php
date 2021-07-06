@@ -49,13 +49,12 @@
                 <div class="login__block__header">
                     <i class="zmdi zmdi-acscount-circle">
                         <lord-icon
-                            src="https://cdn.lordicon.com/tdrtiskw.json"
+                            src="https://cdn.lordicon.com/igrslveu.json"
                             trigger="loop"
                             colors="primary:#e4e4e4,secondary:#86c716"
                             style="width:57px;height:57px">
                         </lord-icon>
                     </i>
-                    Hola otra vez!
                     Ingrese su codigo PIN
                 </div>
                 <div class="login__block__body">

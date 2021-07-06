@@ -396,12 +396,12 @@ if ($_SESSION["usuario"]!=null) {
                                         <div class="col-sm-8">
                                             <div class="input-centered">
                                                 <label class="radio-inline">
-                                                   <input type="radio" name="rol" value="1" required>
+                                                   <input type="radio" name="rol" value="1">
                                                    <i class="input-helper"></i>
                                                    Administrador
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="rol" value="2" required>
+                                                    <input type="radio" name="rol" value="2">
                                                    <i class="input-helper"></i>
                                                    Vendedor
                                                 </label>

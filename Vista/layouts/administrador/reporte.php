@@ -384,7 +384,7 @@ if ($_SESSION["usuario"]!=null) {
                                                 <select class="select2" name="concepto" data-placeholder="Concepto del reporte">
                                                     <option>&nbsp;</option>
                                                     <option>Reporte de Ventas</option>
-                                                    <option>Reporte de Clientes</option>
+                                                    <option>Reporte de platos vendidos</option>
                                                 </select>
                                             </div>
                                         </div>
